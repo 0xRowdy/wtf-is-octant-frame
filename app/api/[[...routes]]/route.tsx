@@ -229,8 +229,7 @@ app.frame("/how2", (c) => {
               size="24"
               weight="600"
             >
-              There is a 2 week window where you must decide where rewards will
-              go.
+              There is a 2 week window where you decide where rewards will go
             </Text>
           </VStack>
         </Box>
