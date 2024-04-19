@@ -30,7 +30,7 @@ app.frame("/wtf", (c) => {
     image: (
       <Box grow background="background" padding="32">
         <Row alignHorizontal="right" height="1/2">
-          <Image src="/octant.png" height="48" />
+          <Image src="/octant.svg" height="56" />
         </Row>
         <Box
           alignHorizontal="center"
@@ -62,7 +62,7 @@ app.frame("/wtf2", (c) => {
     image: (
       <Box grow background="background" padding="32">
         <Row alignHorizontal="right" height="1/2">
-          <Image src="/octant.png" height="48" />
+          <Image src="/octant.svg" height="56" />
         </Row>
         <Box
           alignHorizontal="center"
@@ -172,7 +172,7 @@ app.frame("/how", (c) => {
     image: (
       <Box grow background="background" padding="32">
         <Row alignHorizontal="right" height="1/2">
-          <Image src="/octant.png" height="48" />
+          <Image src="/octant.svg" height="56" />
         </Row>
         <Box
           alignHorizontal="center"
@@ -188,7 +188,7 @@ app.frame("/how", (c) => {
               size="24"
               weight="600"
             >
-              When you lock $GLM into Octant, every 90 days you receive
+              When you lock $GLM into Octant.app, every 90 days you receive
               proportional ETH rewards
             </Text>
             <Text
@@ -213,7 +213,7 @@ app.frame("/how2", (c) => {
     image: (
       <Box grow background="background" padding="32">
         <Row alignHorizontal="right" height="1/2">
-          <Image src="/octant.png" height="48" />
+          <Image src="/octant.svg" height="56" />
         </Row>
         <Box
           alignHorizontal="center"
@@ -245,7 +245,7 @@ app.frame("/how3", (c) => {
     image: (
       <Box grow background="background" padding="32">
         <Row alignHorizontal="right" height="1/2">
-          <Image src="/octant.png" height="48" />
+          <Image src="/octant.svg" height="56" />
         </Row>
         <Box
           alignHorizontal="center"
@@ -255,7 +255,7 @@ app.frame("/how3", (c) => {
         >
           <VStack gap="20" width="100%" paddingLeft="32" paddingRight="32">
             <Text font="default" align="center" size="24" weight="600">
-              To get started, get some $GLM and head to Octant
+              To get started, get some $GLM and head to Octant.app
             </Text>
             <Text
               font="default"
@@ -271,6 +271,7 @@ app.frame("/how3", (c) => {
       </Box>
     ),
     intents: [
+      <Button.Link href="https://octant.app">Octant.app</Button.Link>,
       <Button.Link
         href="https://discord.gg/octant
       "
@@ -281,7 +282,6 @@ app.frame("/how3", (c) => {
     ],
   });
 });
-
 // devtools(app, { serveStatic });
 
 export const GET = handle(app);
