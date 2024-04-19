@@ -6,7 +6,17 @@ import { devtools } from "frog/dev";
 import { handle } from "frog/next";
 import { serveStatic } from "frog/serve-static";
 
-import { Box, Heading, Text, VStack, vars } from "@/app/ui";
+import {
+  Box,
+  Heading,
+  Row,
+  Text,
+  Image,
+  VStack,
+  HStack,
+  Spacer,
+  vars,
+} from "@/app/ui";
 
 const app = new Frog({
   assetsPath: "/",
@@ -28,26 +38,29 @@ const app = new Frog({
 app.frame("/wtf", (c) => {
   return c.res({
     image: (
-      <Box
-        grow
-        alignHorizontal="center"
-        alignVertical="center"
-        backgroundColor="background"
-        padding="32"
-        textAlign="center"
-      >
-        <VStack gap="6" width="100%" paddingLeft="32" paddingRight="32">
-          <Text
-            font="default"
-            align="center"
-            wrap="balance"
-            size="24"
-            weight="600"
-          >
-            100,000+ ETH from the Golem treasury was staked, and the yield is
-            driven to the platform
-          </Text>
-        </VStack>
+      <Box grow background="background" padding="32">
+        <Row alignHorizontal="right" height="1/2">
+          <Image src="/octant.png" height="38" />
+        </Row>
+        <Box
+          alignHorizontal="center"
+          alignVertical="center"
+          padding="32"
+          textAlign="center"
+        >
+          <VStack gap="6" width="100%" paddingLeft="32" paddingRight="32">
+            <Text
+              font="default"
+              align="center"
+              wrap="balance"
+              size="24"
+              weight="600"
+            >
+              100,000+ ETH from the Golem treasury was staked, and the yield is
+              driven to the platform
+            </Text>
+          </VStack>
+        </Box>
       </Box>
     ),
     intents: [<Button action="/wtf2">Tell me more</Button>],
@@ -57,30 +70,33 @@ app.frame("/wtf", (c) => {
 app.frame("/wtf2", (c) => {
   return c.res({
     image: (
-      <Box
-        grow
-        alignHorizontal="center"
-        alignVertical="center"
-        backgroundColor="background"
-        padding="32"
-        textAlign="center"
-      >
-        <VStack gap="6" width="100%" paddingLeft="32" paddingRight="32">
-          <Text
-            font="default"
-            align="center"
-            wrap="balance"
-            size="24"
-            weight="600"
-          >
-            We fund public goods projects and our users every 90 days
-          </Text>
-        </VStack>
+      <Box grow background="background" padding="32">
+        <Row alignHorizontal="right" height="1/2">
+          <Image src="/octant.png" height="38" />
+        </Row>
+        <Box
+          alignHorizontal="center"
+          alignVertical="center"
+          padding="32"
+          textAlign="center"
+        >
+          <VStack gap="6" width="100%" paddingLeft="32" paddingRight="32">
+            <Text
+              font="default"
+              align="center"
+              wrap="balance"
+              size="24"
+              weight="600"
+            >
+              We fund public goods projects and our users every 90 days
+            </Text>
+          </VStack>
+        </Box>
       </Box>
     ),
     intents: [
       <Button action="/how">How does it work?</Button>,
-      <Button.Link href="https://octant.app/">Octant</Button.Link>,
+      <Button action="/projects">Projects?</Button>,
     ],
   });
 });
@@ -91,28 +107,67 @@ app.frame("/projects", (c) => {
       <Box
         grow
         alignHorizontal="center"
-        alignVertical="center"
         backgroundColor="background"
         padding="32"
         textAlign="center"
+        gap="12"
       >
-        <VStack gap="6" width="100%" paddingLeft="32" paddingRight="32">
-          <Text font="default" align="center" size="24" weight="600">
-            The Protocol Guild
-          </Text>
-          <Text font="default" align="left" size="24" weight="600">
-            ETH - Staker
-          </Text>
-          <Text font="default" align="right" size="24" weight="600">
-            The Tor Project
-          </Text>
-          <Text font="default" align="left" size="24" weight="600">
-            Hypercerts
-          </Text>
-          <Text font="default" align="right" size="24" weight="600">
-            ...30 projects so far!
-          </Text>
+        <Text font="default" align="center" size="24" weight="600">
+          Octant funds projects like...
+        </Text>
+
+        <VStack gap="4" width="100%" paddingLeft="32" paddingRight="32">
+          {/* <Row grow> */}
+          <Box
+            justifyContent="flex-start"
+            alignItems="center"
+            flexDirection="row"
+            gap="6"
+          >
+            <Image src="/protocol-guild.svg" height="38" />
+            <Text font="default" align="center" size="24" weight="600">
+              The Protocol Guild
+            </Text>
+          </Box>
+          <Box
+            justifyContent="flex-end"
+            alignItems="center"
+            flexDirection="row"
+            gap="6"
+          >
+            <Image src="/eth-staker.svg" height="40" />
+            <Text font="default" align="left" size="24" weight="600">
+              ETH - Staker
+            </Text>
+          </Box>
+          <Box
+            justifyContent="flex-start"
+            alignItems="center"
+            flexDirection="row"
+            gap="6"
+          >
+            <Image src="/tor.svg" height="40" />
+            <Text font="default" align="right" size="24" weight="600">
+              The Tor Project
+            </Text>
+          </Box>
+          <Box
+            justifyContent="flex-end"
+            alignItems="center"
+            flexDirection="row"
+            gap="6"
+          >
+            <Image src="/hypercerts.svg" height="40" />
+
+            <Text font="default" align="left" size="24" weight="600">
+              Hypercerts
+            </Text>
+          </Box>
         </VStack>
+
+        <Text font="default" size="24" weight="600">
+          ...30 projects so far!
+        </Text>
       </Box>
     ),
     intents: [
@@ -125,35 +180,38 @@ app.frame("/projects", (c) => {
 app.frame("/how", (c) => {
   return c.res({
     image: (
-      <Box
-        grow
-        alignHorizontal="center"
-        alignVertical="center"
-        backgroundColor="background"
-        padding="32"
-        textAlign="center"
-      >
-        <VStack gap="20" width="100%" paddingLeft="32" paddingRight="32">
-          <Text
-            font="default"
-            align="center"
-            wrap="balance"
-            size="24"
-            weight="600"
-          >
-            When you lock $GLM into Octant, every 90 days you receive
-            proportional ETH rewards
-          </Text>
-          <Text
-            font="default"
-            align="center"
-            wrap="balance"
-            size="24"
-            weight="600"
-          >
-            You can keep them, or you can donate some or all!
-          </Text>
-        </VStack>
+      <Box grow background="background" padding="32">
+        <Row alignHorizontal="right" height="1/2">
+          <Image src="/octant.png" height="38" />
+        </Row>
+        <Box
+          alignHorizontal="center"
+          alignVertical="center"
+          padding="32"
+          textAlign="center"
+        >
+          <VStack gap="20" width="100%" paddingLeft="32" paddingRight="32">
+            <Text
+              font="default"
+              align="center"
+              wrap="balance"
+              size="24"
+              weight="600"
+            >
+              When you lock $GLM into Octant, every 90 days you receive
+              proportional ETH rewards
+            </Text>
+            <Text
+              font="default"
+              align="center"
+              wrap="balance"
+              size="24"
+              weight="600"
+            >
+              You can keep them, or you can donate some or all!
+            </Text>
+          </VStack>
+        </Box>
       </Box>
     ),
     intents: [<Button action="/how2">How long do I have to decide?</Button>],
@@ -163,35 +221,29 @@ app.frame("/how", (c) => {
 app.frame("/how2", (c) => {
   return c.res({
     image: (
-      <Box
-        grow
-        alignHorizontal="center"
-        alignVertical="center"
-        backgroundColor="background"
-        padding="32"
-        textAlign="center"
-      >
-        <VStack gap="20" width="100%" paddingLeft="32" paddingRight="32">
-          <Text
-            font="default"
-            align="center"
-            wrap="balance"
-            size="24"
-            weight="600"
-          >
-            When you lock $GLM into Octant, every 90 days you receive
-            proportional ETH rewards
-          </Text>
-          <Text
-            font="default"
-            align="center"
-            wrap="balance"
-            size="24"
-            weight="600"
-          >
-            You can keep them, or you can donate some or all!
-          </Text>
-        </VStack>
+      <Box grow background="background" padding="32">
+        <Row alignHorizontal="right" height="1/2">
+          <Image src="/octant.png" height="38" />
+        </Row>
+        <Box
+          alignHorizontal="center"
+          alignVertical="center"
+          padding="32"
+          textAlign="center"
+        >
+          <VStack gap="20" width="100%" paddingLeft="32" paddingRight="32">
+            <Text
+              font="default"
+              align="center"
+              wrap="balance"
+              size="24"
+              weight="600"
+            >
+              There is a 2 week window where you must decide where rewards will
+              go.
+            </Text>
+          </VStack>
+        </Box>
       </Box>
     ),
     intents: [<Button action="/how3">Cool, How do I get involved?</Button>],
@@ -201,43 +253,46 @@ app.frame("/how2", (c) => {
 app.frame("/how3", (c) => {
   return c.res({
     image: (
-      <Box
-        grow
-        alignHorizontal="center"
-        alignVertical="center"
-        backgroundColor="background"
-        padding="32"
-        textAlign="center"
-      >
-        <VStack gap="20" width="100%" paddingLeft="32" paddingRight="32">
-          <Text font="default" align="center" size="24" weight="600">
-            To get started, get some $GLM and head to Octant
-          </Text>
-          <Text
-            font="default"
-            align="center"
-            wrap="balance"
-            size="24"
-            weight="600"
-          >
-            or join our discord to learn more
-          </Text>
-        </VStack>
+      <Box grow background="background" padding="32">
+        <Row alignHorizontal="right" height="1/2">
+          <Image src="/octant.png" height="38" />
+        </Row>
+        <Box
+          alignHorizontal="center"
+          alignVertical="center"
+          padding="32"
+          textAlign="center"
+        >
+          <VStack gap="20" width="100%" paddingLeft="32" paddingRight="32">
+            <Text font="default" align="center" size="24" weight="600">
+              To get started, get some $GLM and head to Octant
+            </Text>
+            <Text
+              font="default"
+              align="center"
+              wrap="balance"
+              size="24"
+              weight="600"
+            >
+              or join our discord to learn more
+            </Text>
+          </VStack>
+        </Box>
       </Box>
     ),
     intents: [
-      <Button.Link href="https://octant.app/">Octant</Button.Link>,
       <Button.Link
         href="https://discord.gg/octant
       "
       >
         Discord
       </Button.Link>,
+      <Button.Reset>Back</Button.Reset>,
     ],
   });
 });
 
-// devtools(app, { serveStatic });
+devtools(app, { serveStatic });
 
 export const GET = handle(app);
 export const POST = handle(app);
