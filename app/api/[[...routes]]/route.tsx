@@ -6,17 +6,7 @@ import { devtools } from "frog/dev";
 import { handle } from "frog/next";
 import { serveStatic } from "frog/serve-static";
 
-import {
-  Box,
-  Heading,
-  Row,
-  Text,
-  Image,
-  VStack,
-  HStack,
-  Spacer,
-  vars,
-} from "@/app/ui";
+import { Box, Row, Text, Image, VStack, vars } from "@/app/ui";
 
 const app = new Frog({
   assetsPath: "/",
@@ -40,7 +30,7 @@ app.frame("/wtf", (c) => {
     image: (
       <Box grow background="background" padding="32">
         <Row alignHorizontal="right" height="1/2">
-          <Image src="/octant.png" height="38" />
+          <Image src="/octant.png" height="48" />
         </Row>
         <Box
           alignHorizontal="center"
@@ -72,7 +62,7 @@ app.frame("/wtf2", (c) => {
     image: (
       <Box grow background="background" padding="32">
         <Row alignHorizontal="right" height="1/2">
-          <Image src="/octant.png" height="38" />
+          <Image src="/octant.png" height="48" />
         </Row>
         <Box
           alignHorizontal="center"
@@ -112,7 +102,7 @@ app.frame("/projects", (c) => {
         textAlign="center"
         gap="12"
       >
-        <Text font="default" align="center" size="24" weight="600">
+        <Text font="default" align="center" size="20" weight="600">
           Octant funds projects like...
         </Text>
 
@@ -165,7 +155,7 @@ app.frame("/projects", (c) => {
           </Box>
         </VStack>
 
-        <Text font="default" size="24" weight="600">
+        <Text font="default" size="20" weight="600">
           ...30 projects so far!
         </Text>
       </Box>
@@ -182,7 +172,7 @@ app.frame("/how", (c) => {
     image: (
       <Box grow background="background" padding="32">
         <Row alignHorizontal="right" height="1/2">
-          <Image src="/octant.png" height="38" />
+          <Image src="/octant.png" height="48" />
         </Row>
         <Box
           alignHorizontal="center"
@@ -223,7 +213,7 @@ app.frame("/how2", (c) => {
     image: (
       <Box grow background="background" padding="32">
         <Row alignHorizontal="right" height="1/2">
-          <Image src="/octant.png" height="38" />
+          <Image src="/octant.png" height="48" />
         </Row>
         <Box
           alignHorizontal="center"
@@ -255,7 +245,7 @@ app.frame("/how3", (c) => {
     image: (
       <Box grow background="background" padding="32">
         <Row alignHorizontal="right" height="1/2">
-          <Image src="/octant.png" height="38" />
+          <Image src="/octant.png" height="48" />
         </Row>
         <Box
           alignHorizontal="center"
@@ -287,12 +277,12 @@ app.frame("/how3", (c) => {
       >
         Discord
       </Button.Link>,
-      <Button.Reset>Back</Button.Reset>,
+      <Button.Reset>Reset</Button.Reset>,
     ],
   });
 });
 
-devtools(app, { serveStatic });
+// devtools(app, { serveStatic });
 
 export const GET = handle(app);
 export const POST = handle(app);
